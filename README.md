@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# AlloBaby - AI-Enabled Pregnancy Monitoring Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![AlloBaby Logo](src/assets/logo.png)
 
-## Available Scripts
+## 📱 Overview
 
-In the project directory, you can run:
+AlloBaby is an innovative AI-enabled maternal and child care platform designed to support expectant mothers throughout pregnancy and early childcare. This landing page showcases the application's features, benefits, and provides a seamless way for users to download the app.
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Core Features
+- **Baby Heart Rate Monitoring** - Listen and visualize your baby's heartbeat
+- **Pregnancy Progress Tracking** - Week-by-week development with 3D models
+- **Baby Kick Counter** - Track fetal movements with one-tap logging
+- **Private AI Assistant** - 24/7 personalized pregnancy guidance
+- **Feeding Tracker** - Log feeding times and establish routines
+- **Daily Health Monitoring** - Track vitals and health patterns
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Additional Features
+- Blood Pressure Monitoring
+- Talk to Your Baby - Voice recording feature
+- To-Do Lists & Reminders
+- Smart Health Insights with AI analysis
+- Cloud-based data access
+- CE & FDA 510(k) certified
 
-### `npm test`
+## 🎨 Color Palette
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Color Name | Hex Code | Usage |
+|------------|----------|-------|
+| Primary Pink | `#F46A7A` | Primary buttons, icons, highlights |
+| Secondary Pink | `#F78A9A` | Gradients, secondary elements |
+| Soft Pink BG | `#FDF1F3` | Section backgrounds |
+| Light Rose BG | `#FAEDEF` | Hero section background |
+| Dark Text | `#222222` | Headings and important text |
+| Body Text | `#4A4A4A` | Paragraphs and descriptions |
+| White | `#FFFFFF` | Card backgrounds |
 
-### `npm run build`
+## 🚀 Live Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[View Live Demo](https://github.com/darani-04/allobaby)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📦 Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-### `npm run eject`
+### Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone the repository**
+```bash
+git clone https://github.com/darani-04/allobaby
+cd allobaby-landingpage/frontend
