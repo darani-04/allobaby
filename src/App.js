@@ -1,23 +1,43 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Features from './components/Features';
+import HowItWorks from './components/HowItWorks';
+import Screenshots from './components/Screenshots';
+import Benefits from './components/Benefits';
+import FAQ from './components/FAQ';
+import Download from './components/Download';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar isScrolled={isScrolled} />
+      <main>
+        <Hero />
+        <About />
+        <Features />
+        <HowItWorks />
+        <Screenshots />
+        <Benefits />
+        <FAQ />
+        <Download />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
