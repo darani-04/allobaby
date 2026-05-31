@@ -2,173 +2,94 @@ import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
+  const logo = require('../assets/logo.png');
+
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
-          <div className="footer-section">
-            <div className="footer-logo">
-              <div className="logo-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 4C11.5 4 8 7.5 8 12C8 16.5 16 28 16 28C16 28 24 16.5 24 12C24 7.5 20.5 4 16 4Z" fill="#F46A7A"/>
-                  <circle cx="16" cy="12" r="3" fill="white"/>
-                </svg>
-              </div>
-              <span className="logo-text">AlloBaby</span>
-            </div>
-            <p className="footer-description">
-              AI-Enabled Platform for Safe & Healthy Pregnancies.
-            </p>
-            <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook"><FaFacebook /></a>
-              <a href="#" className="social-link" aria-label="Twitter"><FaTwitter /></a>
-              <a href="#" className="social-link" aria-label="Instagram"><FaInstagram /></a>
-              <a href="#" className="social-link" aria-label="LinkedIn"><FaLinkedin /></a>
-            </div>
+    <footer style={{ background: '#222222', color: 'white', padding: '3rem 0 1rem 0' }}>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '2rem',
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 2rem',
+      }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+            <img 
+              src={logo} 
+              alt="AlloBaby Logo" 
+              style={{ height: 'clamp(30px, 5vw, 35px)', width: 'auto' }}
+            />
+            <span style={{ 
+              fontSize: 'clamp(1.2rem, 5vw, 1.5rem)', 
+              fontWeight: 700, 
+              background: 'linear-gradient(135deg, #F46A7A, #F78A9A)', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent' 
+            }}>
+              AlloBaby
+            </span>
           </div>
-
-          <div className="footer-section">
-            <h4>Contact Information</h4>
-            <div className="contact-info">
-              <p><FaPhone /> <span className="contact-label">Call Us:</span> +91 80952 05092</p>
-              <p><FaWhatsapp /> <span className="contact-label">WhatsApp:</span> +91 93615 13147</p>
-              <p><FaEnvelope /> <span className="contact-label">Email:</span> hello@savemom.ai</p>
-              <p><FaMapMarkerAlt /> <span className="contact-label">Headquarters:</span> Madurai, Tamil Nadu, India</p>
-            </div>
+          <p style={{ color: '#AAAAAA', lineHeight: 1.6, fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>AI-Enabled Platform for Safe & Healthy Pregnancies</p>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', transition: 'all 0.3s ease' }} aria-label="Facebook"><FaFacebook size={16} /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', transition: 'all 0.3s ease' }} aria-label="Twitter"><FaTwitter size={16} /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', transition: 'all 0.3s ease' }} aria-label="Instagram"><FaInstagram size={16} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', transition: 'all 0.3s ease' }} aria-label="LinkedIn"><FaLinkedin size={16} /></a>
           </div>
         </div>
-
-        <div className="footer-bottom">
-          <p>&copy; 2026 AlloBaby. All rights reserved.</p>
+        
+        <div>
+          <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Quick Links</h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#about" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>About Us</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#features" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>Features</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#how-it-works" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>How It Works</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#faq" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>FAQ</a></li>
+          </ul>
         </div>
+        
+        <div>
+          <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Legal</h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/privacy" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>Privacy Policy</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/terms" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>Terms of Service</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/cookies" style={{ color: '#AAAAAA', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>Cookie Policy</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Contact Us</h4>
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#AAAAAA', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaPhone style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 80952 05092</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#AAAAAA', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaWhatsapp style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 93615 13147</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#AAAAAA', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaEnvelope style={{ color: '#F46A7A', minWidth: '16px' }} /> hello@savemom.ai</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#AAAAAA', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaMapMarkerAlt style={{ color: '#F46A7A', minWidth: '16px' }} /> Madurai, Tamil Nadu, India</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style={{ textAlign: 'center', paddingTop: '2rem', marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', color: '#AAAAAA', fontSize: 'clamp(0.7rem, 3vw, 0.875rem)' }}>
+        <p>&copy; 2026 AlloBaby. All rights reserved.</p>
       </div>
 
       <style>{`
-        .footer {
-          background: #222222;
-          color: #fff;
-          padding: 3rem 0 1rem 0;
-        }
-        
-        .container {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-        
-        .footer-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 3rem;
-          margin-bottom: 2rem;
-          max-width: 800px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        
-        .footer-logo {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-bottom: 1rem;
-          justify-content: center;
-        }
-        
-        .footer-logo .logo-icon svg {
-          width: 32px;
-          height: 32px;
-        }
-        
-        .footer-logo .logo-text {
-          font-size: 1.25rem;
-          font-weight: 700;
-          background: linear-gradient(135deg, #F46A7A, #F78A9A);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-        
-        .footer-description {
-          color: #AAAAAA;
-          line-height: 1.6;
-          margin-bottom: 1rem;
-          text-align: center;
-        }
-        
-        .social-links {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-        }
-        
-        .social-link {
-          width: 36px;
-          height: 36px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          transition: all 0.3s ease;
-          text-decoration: none;
-        }
-        
         .social-link:hover {
           background: #F46A7A;
           transform: translateY(-3px);
         }
-        
-        .footer-section h4 {
-          font-size: 1.125rem;
-          margin-bottom: 1rem;
-          color: #F46A7A;
-          text-align: center;
+        .footer-link:hover {
+          color: #F46A7A !important;
         }
-        
-        .contact-info {
-          text-align: center;
-        }
-        
-        .contact-info p {
-          color: #AAAAAA;
-          margin-bottom: 0.75rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          font-size: 0.875rem;
-          flex-wrap: wrap;
-        }
-        
-        .contact-info svg {
-          color: #F46A7A;
-          font-size: 0.875rem;
-        }
-        
-        .contact-label {
-          font-weight: 500;
-          color: #CCCCCC;
-        }
-        
-        .footer-bottom {
-          text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          color: #AAAAAA;
-          font-size: 0.875rem;
-        }
-        
         @media (max-width: 768px) {
           .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            text-align: center;
           }
-          
-          .container {
-            padding: 0 1rem;
+          .social-links {
+            justify-content: center;
           }
-          
-          .contact-info p {
+          .contact-list li {
             justify-content: center;
           }
         }

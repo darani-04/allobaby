@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
-import logo from "../assets/logo.png";
 
-const Navbar = ({ isScrolled }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const logo = require('../assets/logo.png');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      if (window.innerWidth > 768) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Features', href: '#features' },
-    { name: 'Screenshots', href: '#screenshots' },
+    { name: 'How It Works', href: '#how-it-works' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   const scrollToSection = (href) => {
@@ -21,178 +40,99 @@ const Navbar = ({ isScrolled }) => {
     }
   };
 
-  const openPlayStore = () => {
-    window.open('https://play.google.com/store/apps/details?id=com.savemom.allobaby', '_blank');
-  };
-
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="nav-container">
-        <div className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src={logo} alt="AlloBaby Logo" className="logo-image" />
-          <span className="logo-text">Allo<span className="logo-highlight">Baby</span></span>
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      zIndex: 1000,
+      transition: 'all 0.3s ease',
+      padding: scrolled ? '0.75rem 0' : '1rem 0',
+      background: scrolled ? 'rgba(255, 255, 255, 0.98)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(10px)' : 'none',
+      boxShadow: scrolled ? '0 2px 20px rgba(0, 0, 0, 0.05)' : 'none',
+    }}>
+      <div style={{
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 2rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+      }}>
+        {/* Logo with AlloBaby name */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img 
+            src={logo} 
+            alt="AlloBaby Logo" 
+            style={{ height: windowWidth <= 480 ? '28px' : '32px', width: 'auto' }}
+          />
+          <span style={{ fontSize: windowWidth <= 480 ? '1.2rem' : '1.5rem', fontWeight: 700, color: '#222222' }}>
+            Allo<span style={{ color: '#F46A7A' }}>Baby</span>
+          </span>
         </div>
 
-        <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          {navLinks.map((link, index) => (
+        {/* Desktop Menu */}
+        {windowWidth > 768 && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                style={{ textDecoration: 'none', color: '#4A4A4A', fontWeight: 500, transition: 'color 0.3s ease', cursor: 'pointer' }}
+                onMouseEnter={(e) => e.target.style.color = '#F46A7A'}
+                onMouseLeave={(e) => e.target.style.color = '#4A4A4A'}
+              >
+                {link.name}
+              </a>
+            ))}
+            <button className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.875rem' }} onClick={() => scrollToSection('#download')}>
+              <FaDownload /> Download
+            </button>
+          </div>
+        )}
+
+        {/* Hamburger Menu Button */}
+        {windowWidth <= 768 && (
+          <div style={{ fontSize: '1.5rem', cursor: 'pointer', color: '#222222' }} onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && windowWidth <= 768 && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          right: 0,
+          background: 'white',
+          padding: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1.5rem',
+          boxShadow: '0 5px 20px rgba(0,0,0,0.1)',
+          zIndex: 999
+        }}>
+          {navLinks.map((link) => (
             <a
-              key={index}
+              key={link.name}
               href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection(link.href);
-              }}
-              className="nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+              style={{ fontSize: '1.25rem', textDecoration: 'none', color: '#4A4A4A' }}
             >
               {link.name}
             </a>
           ))}
-          <button className="btn-download-mobile" onClick={openPlayStore}>
+          <button className="btn-primary" onClick={() => scrollToSection('#download')} style={{ width: '100%', justifyContent: 'center' }}>
             <FaDownload /> Download App
           </button>
         </div>
-
-        <button className="nav-download-btn btn-primary" onClick={openPlayStore}>
-          <FaDownload /> Download
-        </button>
-
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
-      </div>
-
-      <style>{`
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 1000;
-          transition: all 0.3s ease;
-          padding: 1rem 0;
-          background: transparent;
-        }
-        
-        .navbar.scrolled {
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(10px);
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-          padding: 0.75rem 0;
-        }
-        
-        .nav-container {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 2rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-        
-        .logo {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          cursor: pointer;
-          font-size: 1.5rem;
-          font-weight: 700;
-        }
-        
-        .logo-image {
-          width: 32px;
-          height: 32px;
-          object-fit: contain;
-        }
-        
-        .logo-text {
-          color: #222222;
-        }
-        
-        .logo-highlight {
-          color: #F46A7A;
-        }
-        
-        .nav-menu {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-        }
-        
-        .nav-link {
-          text-decoration: none;
-          color: #4A4A4A;
-          font-weight: 500;
-          transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-          color: #F46A7A;
-        }
-        
-        .nav-download-btn {
-          padding: 0.5rem 1.25rem;
-          font-size: 0.875rem;
-        }
-        
-        .btn-download-mobile {
-          display: none;
-        }
-        
-        .hamburger {
-          display: none;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #222222;
-        }
-        
-        @media (max-width: 768px) {
-          .nav-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            height: 100vh;
-            background: white;
-            flex-direction: column;
-            justify-content: center;
-            gap: 2rem;
-            transition: 0.3s ease;
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-          }
-          
-          .nav-menu.active {
-            right: 0;
-          }
-          
-          .nav-link {
-            font-size: 1.25rem;
-          }
-          
-          .nav-download-btn {
-            display: none;
-          }
-          
-          .btn-download-mobile {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #F46A7A, #F78A9A);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-          }
-          
-          .hamburger {
-            display: block;
-            z-index: 1001;
-          }
-          
-          .navbar.scrolled .nav-menu {
-            background: white;
-          }
-        }
-      `}</style>
+      )}
     </nav>
   );
 };

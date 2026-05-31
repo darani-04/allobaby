@@ -5,30 +5,11 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqs = [
-    {
-      question: "Is AlloBaby free to use?",
-      answer: "AlloBaby offers a free version with basic tracking features. Premium features including AI insights, risk alerts, and healthcare connectivity are available through a subscription plan with flexible monthly and yearly options."
-    },
-    {
-      question: "How accurate is the AI health monitoring?",
-      answer: "Our AI models are trained on thousands of pregnancy cases and validated by medical professionals. While AlloBaby provides valuable insights, it is designed to complement, not replace, professional medical care. Always consult your doctor for medical decisions."
-    },
-    {
-      question: "Is my health data secure?",
-      answer: "Absolutely. We use bank-level encryption (AES-256) for all health data. We comply with healthcare data privacy regulations and never share your personal information without explicit consent."
-    },
-    {
-      question: "Can I share my data with my doctor?",
-      answer: "Yes! AlloBaby allows you to generate comprehensive health reports that you can share directly with your healthcare provider via email or PDF export."
-    },
-    {
-      question: "At what stage of pregnancy should I start using AlloBaby?",
-      answer: "You can start using AlloBaby as soon as you find out you're pregnant. The app provides relevant information and tracking features for each trimester, from early pregnancy through postpartum."
-    },
-    {
-      question: "Does AlloBaby work without internet?",
-      answer: "Most tracking features work offline. Data syncs automatically when you reconnect to the internet. AI insights and real-time alerts require an internet connection."
-    }
+    { question: "Is my data secure?", answer: "Yes! We use bank-level encryption (AES-256) for all health data. We comply with healthcare data privacy regulations and never share your personal information without explicit consent." },
+    { question: "Does the AI replace medical advice?", answer: "No. While AlloBaby provides valuable insights, it is designed to complement, not replace, professional medical care. Always consult your doctor for medical decisions." },
+    { question: "Is the app free to use?", answer: "AlloBaby offers a free version with basic tracking features. Premium features including AI insights, risk alerts, and healthcare connectivity are available through a subscription plan." },
+    { question: "Can I share my data with my doctor?", answer: "Yes! AlloBaby allows you to generate comprehensive health reports that you can share directly with your healthcare provider via email or PDF export." },
+    { question: "At what stage should I start using AlloBaby?", answer: "You can start using AlloBaby as soon as you find out you're pregnant. The app provides relevant information and tracking features for each trimester." }
   ];
 
   const toggleFAQ = (index) => {
@@ -36,24 +17,51 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="faq">
+    <section id="faq" style={{ padding: '5rem 0', background: 'white' }}>
       <div className="container">
-        <h2>Frequently Asked Questions</h2>
-        <p className="section-subtitle">
-          Everything you need to know about AlloBaby
-        </p>
-
-        <div className="faq-grid">
+        <div className="section-header" data-aos="fade-up">
+          <h2 className="section-title">Frequently Asked <span className="gradient-text">Questions</span></h2>
+          <p className="section-subtitle">Everything you need to know about AlloBaby</p>
+        </div>
+        
+        <div style={{ 
+          maxWidth: '800px', 
+          margin: '0 auto',
+          padding: '0 1rem'
+        }}>
           {faqs.map((faq, index) => (
-            <div className="faq-item" key={index}>
-              <div className="faq-question" onClick={() => toggleFAQ(index)}>
-                <span>{faq.question}</span>
-                <div className="faq-icon">
-                  {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
-                </div>
-              </div>
+            <div key={index} style={{ 
+              background: '#F8F8F8', 
+              borderRadius: '16px', 
+              marginBottom: '1rem', 
+              overflow: 'hidden', 
+              transition: 'all 0.3s ease' 
+            }} className="faq-item" data-aos="fade-up" data-aos-delay={index * 100}>
+              <button style={{ 
+                width: '100%', 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center', 
+                padding: 'clamp(1rem, 4vw, 1.25rem) clamp(1rem, 4vw, 1.5rem)', 
+                background: 'none', 
+                border: 'none', 
+                fontSize: 'clamp(0.875rem, 4vw, 1rem)', 
+                fontWeight: 600, 
+                color: '#222222', 
+                cursor: 'pointer', 
+                transition: 'background 0.3s ease',
+                textAlign: 'left'
+              }} className="faq-question" onClick={() => toggleFAQ(index)}>
+                <span style={{ flex: 1, paddingRight: '1rem' }}>{faq.question}</span>
+                {openIndex === index ? <FaChevronUp style={{ color: '#F46A7A', flexShrink: 0 }} /> : <FaChevronDown style={{ color: '#F46A7A', flexShrink: 0 }} />}
+              </button>
               <div className={`faq-answer ${openIndex === index ? 'open' : ''}`}>
-                <p>{faq.answer}</p>
+                <p style={{ 
+                  padding: '0 clamp(1rem, 4vw, 1.5rem) clamp(1rem, 4vw, 1.25rem) clamp(1rem, 4vw, 1.5rem)', 
+                  color: '#4A4A4A', 
+                  lineHeight: 1.6,
+                  fontSize: 'clamp(0.875rem, 4vw, 0.95rem)'
+                }}>{faq.answer}</p>
               </div>
             </div>
           ))}
@@ -61,62 +69,23 @@ const FAQ = () => {
       </div>
 
       <style>{`
-        .faq {
-          background: #faf9ff;
+        .faq-item:hover {
+          box-shadow: 0 5px 20px rgba(244, 106, 122, 0.1);
         }
-        
-        .faq-grid {
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        
-        .faq-item {
-          background: white;
-          border-radius: 16px;
-          margin-bottom: 1rem;
-          overflow: hidden;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-        }
-        
-        .faq-question {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1.25rem 1.5rem;
-          cursor: pointer;
-          font-weight: 600;
-          transition: background 0.3s ease;
-        }
-        
         .faq-question:hover {
-          background: #f5f3ff;
+          background: #FDF1F3;
         }
-        
-        .faq-icon {
-          color: #8B5CF6;
-        }
-        
         .faq-answer {
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease;
-          padding: 0 1.5rem;
         }
-        
         .faq-answer.open {
           max-height: 300px;
-          padding: 0 1.5rem 1.25rem 1.5rem;
         }
-        
-        .faq-answer p {
-          color: #4a5568;
-          line-height: 1.6;
-        }
-        
         @media (max-width: 768px) {
-          .faq-question {
-            padding: 1rem;
-            font-size: 0.9rem;
+          .faq-answer.open {
+            max-height: 400px;
           }
         }
       `}</style>

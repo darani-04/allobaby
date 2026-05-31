@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,24 +8,23 @@ import Screenshots from './components/Screenshots';
 import Benefits from './components/Benefits';
 import FAQ from './components/FAQ';
 import Download from './components/Download';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './App.css';
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
   }, []);
 
   return (
     <div className="app">
-      <Navbar isScrolled={isScrolled} />
+      <Navbar />
       <main>
         <Hero />
         <About />
@@ -35,7 +34,6 @@ function App() {
         <Benefits />
         <FAQ />
         <Download />
-        <Contact />
       </main>
       <Footer />
     </div>

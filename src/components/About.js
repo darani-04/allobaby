@@ -1,159 +1,100 @@
 import React from 'react';
+import { FaRobot, FaHeart, FaShieldAlt } from 'react-icons/fa';
 
 const About = () => {
+  const aboutImage = require('../assets/about-illustrated.png');
+
+  const items = [
+    { icon: <FaRobot />, title: "Overview", description: "An AI-driven ecosystem supporting parents from conception to early childhood." },
+    { icon: <FaHeart />, title: "Purpose", description: "Bridging the gap between cutting-edge technology and intuitive emotional care." },
+    { icon: <FaShieldAlt />, title: "Benefits", description: "Personalized insights, 24/7 support, and secure data encryption for peace of mind." }
+  ];
+
   return (
-    <section id="about" className="about">
-      <div className="container">
-        <h2>About AlloBaby</h2>
-        <p className="section-subtitle">
-          Revolutionizing maternal and child care with AI technology
-        </p>
-
-        <div className="about-grid">
-          <div className="about-content">
-            <div className="about-card">
-              <h3>What is AlloBaby?</h3>
-              <p>
-                AlloBaby is an innovative maternal and child care platform designed to support expectant 
-                mothers and their partners throughout pregnancy and early childcare. It offers continuous 
-                pregnancy monitoring by tracking vital signs such as heart rate, blood pressure, and glucose 
-                levels while providing real-time risk alerts and wellness tips.
-              </p>
-            </div>
-
-            <div className="about-card">
-              <h3>Our Mission</h3>
-              <p>
-                To empower every expecting mother with accessible, AI-driven pregnancy care that ensures 
-                safe and healthy pregnancies. We believe that technology should bridge the gap between 
-                mothers and quality healthcare, making professional-grade monitoring available to everyone.
-              </p>
-            </div>
-
-            <div className="about-card">
-              <h3>Why AlloBaby Was Created</h3>
-              <p>
-                AlloBaby was created to address the critical need for continuous pregnancy monitoring, 
-                especially in areas with limited access to healthcare facilities. By combining medical-grade 
-                accuracy with AI intelligence, we provide mothers with peace of mind and early detection 
-                of potential complications.
-              </p>
-            </div>
-          </div>
-
-          <div className="about-benefits">
-            <h3>Overall Benefits</h3>
-            <ul className="benefits-list">
-              <li>✓ Continuous 24/7 pregnancy monitoring</li>
-              <li>✓ Early detection of potential health risks</li>
-              <li>✓ Real-time AI-powered insights and alerts</li>
-              <li>✓ Medical-grade accuracy (CE & FDA certified)</li>
-              <li>✓ Easy access to health data anytime, anywhere</li>
-              <li>✓ Peace of mind for expectant mothers</li>
-              <li>✓ Reduced anxiety with professional monitoring</li>
-              <li>✓ Seamless sharing with healthcare providers</li>
-            </ul>
+    <section id="about" style={{ padding: '5rem 0', background: 'white' }}>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '2rem',
+        alignItems: 'center',
+        maxWidth: '1280px',
+        margin: '0 auto',
+        padding: '0 2rem',
+      }}>
+        <div data-aos="fade-right" style={{ textAlign: 'center' }}>
+          <img 
+            src={aboutImage} 
+            alt="Mother and baby"
+            style={{ 
+              width: '100%', 
+              maxWidth: 'min(450px, 100%)', 
+              borderRadius: '24px', 
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)', 
+              transition: 'transform 0.3s ease' 
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          />
+        </div>
+        
+        <div data-aos="fade-left">
+          <h2 className="section-title" style={{ textAlign: 'left' }}>
+            A Sanctuary of Care and{' '}
+            <span className="gradient-text">Intelligent Support</span>
+          </h2>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '2rem' }}>
+            {items.map((item, index) => (
+              <div key={index} style={{ 
+                display: 'flex', 
+                gap: '1rem', 
+                padding: '1.25rem', 
+                background: '#F8F8F8', 
+                borderRadius: '20px', 
+                transition: 'all 0.3s ease',
+                flexDirection: 'row',
+                alignItems: 'flex-start'
+              }} className="about-card">
+                <div style={{ 
+                  width: '50px', 
+                  height: '50px', 
+                  background: 'white', 
+                  borderRadius: '15px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center', 
+                  color: '#F46A7A', 
+                  fontSize: '1.5rem', 
+                  transition: 'transform 0.3s ease',
+                  flexShrink: 0
+                }} className="about-icon">{item.icon}</div>
+                <div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem', color: '#222222' }}>{item.title}</h3>
+                  <p style={{ color: '#4A4A4A', lineHeight: 1.5 }}>{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       <style>{`
-        .about {
-          background: #FDF1F3;
-          padding: 5rem 0;
-        }
-        
-        .container {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-        
-        h2 {
-          font-size: 2.5rem;
-          margin-bottom: 1.5rem;
-          text-align: center;
-          color: #222222;
-        }
-        
-        .section-subtitle {
-          text-align: center;
-          font-size: 1.125rem;
-          color: #4A4A4A;
-          max-width: 700px;
-          margin: -1rem auto 3rem auto;
-        }
-        
-        .about-grid {
-          display: grid;
-          grid-template-columns: 1fr 0.8fr;
-          gap: 3rem;
-          align-items: start;
-        }
-        
-        .about-card {
-          background: white;
-          border-radius: 20px;
-          padding: 1.5rem;
-          margin-bottom: 1.5rem;
-          border-left: 4px solid #F46A7A;
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-          transition: all 0.3s ease;
-        }
-        
         .about-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 30px rgba(244, 106, 122, 0.1);
+          transform: translateX(10px);
+          background: #FDF1F3;
+          box-shadow: 0 10px 25px rgba(244, 106, 122, 0.1);
         }
-        
-        .about-card h3 {
-          font-size: 1.25rem;
-          margin-bottom: 1rem;
-          color: #F46A7A;
+        .about-icon:hover {
+          transform: scale(1.1) rotate(5deg);
         }
-        
-        .about-card p {
-          color: #4A4A4A;
-          line-height: 1.6;
-        }
-        
-        .about-benefits {
-          background: linear-gradient(135deg, #F46A7A, #F78A9A);
-          border-radius: 24px;
-          padding: 2rem;
-          color: white;
-          box-shadow: 0 10px 30px rgba(244, 106, 122, 0.2);
-        }
-        
-        .about-benefits h3 {
-          color: white;
-          margin-bottom: 1.5rem;
-          text-align: center;
-        }
-        
-        .benefits-list {
-          list-style: none;
-          padding: 0;
-        }
-        
-        .benefits-list li {
-          padding: 0.5rem 0;
-          font-size: 0.9rem;
-          border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .benefits-list li:last-child {
-          border-bottom: none;
-        }
-        
         @media (max-width: 768px) {
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
+          .about-card {
+            flex-direction: column !important;
+            text-align: center;
+            align-items: center !important;
           }
-          
-          .container {
-            padding: 0 1rem;
+          .about-card:hover {
+            transform: translateY(-5px);
           }
         }
       `}</style>

@@ -1,194 +1,129 @@
 import React from 'react';
-import { FaLeaf, FaBell, FaChartLine, FaHospitalUser, FaUserCheck } from 'react-icons/fa';
+import { FaClock, FaShieldAlt, FaCloudUploadAlt, FaGooglePlay } from 'react-icons/fa';
 
 const Benefits = () => {
+  const openPlayStore = () => {
+    window.open('https://play.google.com/store/apps/details?id=com.savemom.allobaby', '_blank');
+  };
+
   const benefits = [
     {
-      icon: <FaLeaf />,
-      title: "Better Maternal Health",
-      description: "Proactive health monitoring leads to healthier pregnancies and fewer complications."
+      icon: <FaClock />,
+      title: "Expert Guidance 24/7",
+      description: "Never feel alone. Our AI companion is trained on thousands of pediatric data points to give you reliable answers instantly.",
+      color: "#F46A7A"
     },
     {
-      icon: <FaBell />,
-      title: "Early Risk Detection",
-      description: "AI identifies warning signs days or weeks before they become serious issues."
+      icon: <FaShieldAlt />,
+      title: "Total Peace of Mind",
+      description: "Health tracking that alerts you to changes before they become concerns. Secure, private, and always available.",
+      color: "#F78A9A"
     },
     {
-      icon: <FaChartLine />,
-      title: "Continuous Monitoring",
-      description: "Track your health 24/7 without frequent hospital visits."
-    },
-    {
-      icon: <FaHospitalUser />,
-      title: "Easy Healthcare Access",
-      description: "Connect with doctors instantly and share reports seamlessly."
-    },
-    {
-      icon: <FaUserCheck />,
-      title: "Personalized Guidance",
-      description: "Get advice tailored to your unique pregnancy journey and health profile."
+      icon: <FaCloudUploadAlt />,
+      title: "Seamless Health Sync",
+      description: "Centralize all your data from vitals to feedings. Share reports with your doctor effortlessly at your next appointment.",
+      color: "#F46A7A"
     }
   ];
 
   return (
-    <section id="benefits" className="benefits">
+    <section id="benefits" style={{ padding: '5rem 0', background: 'linear-gradient(135deg, #FDF1F3 0%, #FAEDEF 100%)' }}>
       <div className="container">
-        <h2>Why Choose AlloBaby</h2>
-        <p className="section-subtitle">
-          Transforming pregnancy care with technology and compassion
-        </p>
+        <div className="section-header" data-aos="fade-up">
+          <h2 className="section-title">OUR <span className="gradient-text">VALUE</span></h2>
+          <p className="section-subtitle">Empowering Your Parenting Journey</p>
+        </div>
 
-        <div className="benefits-grid">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '2rem',
+          marginBottom: '3rem',
+          maxWidth: '1280px',
+          margin: '0 auto 3rem auto'
+        }}>
           {benefits.map((benefit, index) => (
-            <div className="benefit-card" key={index}>
-              <div className="benefit-icon">{benefit.icon}</div>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.description}</p>
+            <div key={index} style={{
+              background: 'white',
+              borderRadius: '24px',
+              padding: '2rem',
+              textAlign: 'center',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 5px 20px rgba(0, 0, 0, 0.05)'
+            }} className="benefit-card" data-aos="fade-up" data-aos-delay={index * 100}>
+              <div style={{
+                width: '70px',
+                height: '70px',
+                background: `linear-gradient(135deg, ${benefit.color}, ${benefit.color}dd)`,
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 1.5rem auto',
+                transition: 'transform 0.3s ease'
+              }} className="benefit-icon">
+                {benefit.icon}
+              </div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '1rem', color: '#222222' }}>{benefit.title}</h3>
+              <p style={{ color: '#4A4A4A', lineHeight: 1.6 }}>{benefit.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="testimonial-card">
-          <div className="testimonial-quote">"</div>
-          <p className="testimonial-text">
-            AlloBaby gave me peace of mind throughout my pregnancy. 
-            The AI insights helped me catch a potential issue early, 
-            and I felt supported every step of the way.
+        {/* CTA Banner */}
+        <div style={{
+          background: 'linear-gradient(135deg, #F46A7A, #F78A9A)',
+          borderRadius: '24px',
+          padding: 'clamp(2rem, 5vw, 3rem)',
+          textAlign: 'center',
+          color: 'white'
+        }} data-aos="fade-up">
+          <h3 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: 800, marginBottom: '1rem', color: 'white' }}>
+            Start for Free
+          </h3>
+          <p style={{ fontSize: 'clamp(0.875rem, 4vw, 1rem)', marginBottom: '1.5rem', opacity: 0.95 }}>
+            Join thousands of happy parents using AlloBaby
           </p>
-          <div className="testimonial-author">
-            <span className="author-name">Priya Sharma</span>
-            <span className="author-title">Happy Mom of baby Aarav</span>
-          </div>
+          <button 
+            onClick={openPlayStore} 
+            style={{
+              background: 'white',
+              color: '#F46A7A',
+              border: 'none',
+              padding: '0.875rem 2rem',
+              borderRadius: '50px',
+              fontWeight: 600,
+              fontSize: '1rem',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+            className="cta-btn"
+          >
+            <FaGooglePlay /> Get Started
+          </button>
         </div>
       </div>
 
       <style>{`
-        .benefits {
-          background: #FAEDEF;
-          padding: 5rem 0;
-        }
-        
-        .container {
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 0 2rem;
-        }
-        
-        h2 {
-          font-size: 2.5rem;
-          margin-bottom: 1.5rem;
-          text-align: center;
-          color: #222222;
-        }
-        
-        .section-subtitle {
-          text-align: center;
-          font-size: 1.125rem;
-          color: #4A4A4A;
-          max-width: 700px;
-          margin: -1rem auto 3rem auto;
-        }
-        
-        .benefits-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 1.5rem;
-          margin-bottom: 3rem;
-        }
-        
-        .benefit-card {
-          text-align: center;
-          padding: 2rem 1rem;
-          background: white;
-          border-radius: 24px;
-          transition: all 0.3s ease;
-          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-        }
-        
         .benefit-card:hover {
-          transform: translateY(-5px);
-          background: white;
-          box-shadow: 0 15px 35px rgba(244, 106, 122, 0.1);
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(244, 106, 122, 0.15);
         }
-        
-        .benefit-icon {
-          font-size: 2.5rem;
-          color: #F46A7A;
-          margin-bottom: 1rem;
+        .benefit-icon:hover {
+          transform: scale(1.05) rotate(5deg);
         }
-        
-        .benefit-card h3 {
-          font-size: 1.125rem;
-          margin-bottom: 0.5rem;
-          color: #222222;
+        .cta-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
-        
-        .benefit-card p {
-          font-size: 0.875rem;
-          color: #4A4A4A;
-          line-height: 1.5;
-        }
-        
-        .testimonial-card {
-          background: linear-gradient(135deg, #F46A7A, #F78A9A);
-          border-radius: 32px;
-          padding: 2rem;
-          color: white;
-          text-align: center;
-          margin-top: 2rem;
-          box-shadow: 0 10px 30px rgba(244, 106, 122, 0.2);
-        }
-        
-        .testimonial-quote {
-          font-size: 4rem;
-          font-family: Georgia, serif;
-          opacity: 0.5;
-          line-height: 1;
-        }
-        
-        .testimonial-text {
-          font-size: 1.125rem;
-          line-height: 1.6;
-          max-width: 600px;
-          margin: 0 auto 1.5rem auto;
-          font-style: italic;
-        }
-        
-        .testimonial-author {
-          display: flex;
-          flex-direction: column;
-        }
-        
-        .author-name {
-          font-weight: 700;
-        }
-        
-        .author-title {
-          font-size: 0.875rem;
-          opacity: 0.9;
-        }
-        
-        @media (max-width: 1000px) {
-          .benefits-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-        
-        @media (max-width: 700px) {
-          .benefits-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        
-        @media (max-width: 500px) {
-          .benefits-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        
         @media (max-width: 768px) {
-          .container {
-            padding: 0 1rem;
+          .benefit-card {
+            max-width: 100%;
+            margin: 0 1rem;
           }
         }
       `}</style>
