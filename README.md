@@ -1,6 +1,5 @@
 # AlloBaby - AI-Enabled Pregnancy Monitoring Platform
 
-![AlloBaby Logo](src/assets/logo.png)
 
 ## 📱 Overview
 
