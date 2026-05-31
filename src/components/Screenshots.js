@@ -47,7 +47,7 @@ const Screenshots = () => {
   const isMobile = windowWidth <= 768;
 
   return (
-    <section id="screenshots" style={{ padding: '5rem 0', background: '#F8F8F8' }}>
+    <section id="screenshots" style={{ padding: '5rem 0', background: 'linear-gradient(135deg, #FFFFFF, #FDF1F3)' }}>
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <h2 className="section-title">Inside the <span className="gradient-text">App</span></h2>
@@ -67,18 +67,28 @@ const Screenshots = () => {
           {/* Allobot Card */}
           <div style={{
             background: 'white',
-            borderRadius: '24px',
+            borderRadius: '20px',
             padding: '1.5rem',
-            boxShadow: '0 5px 20px rgba(0,0,0,0.05)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
             cursor: 'pointer',
             border: activeTab === 'allobot' ? '2px solid #F46A7A' : '1px solid #EAEAEA',
             transition: 'all 0.3s ease'
           }} onClick={() => setActiveTab('allobot')}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '1.5rem' }}>🤖</span>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                background: 'linear-gradient(135deg, #F46A7A, #F78A9A)',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <span style={{ fontSize: '1.2rem' }}>🤖</span>
+              </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#222222' }}>Allobot</h3>
             </div>
-            <p style={{ color: '#4A4A4A', marginBottom: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: '#4A4A4A', marginBottom: '1rem', fontSize: '0.9rem', lineHeight: 1.5 }}>
               Start with chat, vision, live assistant, or switch inference mode instantly.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -97,18 +107,28 @@ const Screenshots = () => {
           {/* Custom Agent Card */}
           <div style={{
             background: 'white',
-            borderRadius: '24px',
+            borderRadius: '20px',
             padding: '1.5rem',
-            boxShadow: '0 5px 20px rgba(0,0,0,0.05)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
             cursor: 'pointer',
             border: activeTab === 'custom' ? '2px solid #F46A7A' : '1px solid #EAEAEA',
             transition: 'all 0.3s ease'
           }} onClick={() => setActiveTab('custom')}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '1.5rem' }}>⚡</span>
+              <div style={{
+                width: '40px',
+                height: '40px',
+                background: 'linear-gradient(135deg, #F46A7A, #F78A9A)',
+                borderRadius: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <span style={{ fontSize: '1.2rem' }}>⚡</span>
+              </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#222222' }}>Custom Agent</h3>
             </div>
-            <p style={{ color: '#4A4A4A', marginBottom: '1rem', fontSize: '0.9rem' }}>
+            <p style={{ color: '#4A4A4A', marginBottom: '1rem', fontSize: '0.9rem', lineHeight: 1.5 }}>
               Powerful tools to enhance your experience. New agents added regularly!
             </p>
             <div style={{ 
@@ -129,77 +149,107 @@ const Screenshots = () => {
           </div>
         </div>
 
-        {/* Screenshot Carousel */}
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }} data-aos="fade-up">
-          <button style={{ 
-            width: 'clamp(35px, 8vw, 40px)', 
-            height: 'clamp(35px, 8vw, 40px)', 
-            borderRadius: '50%', 
-            background: 'white', 
-            border: 'none', 
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', 
-            cursor: 'pointer', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            transition: 'all 0.3s ease', 
-            color: '#F46A7A' 
-          }} onClick={prevSlide} className="carousel-btn"><FaChevronLeft /></button>
+        {/* Screenshot Carousel - Black border, no shadow */}
+        <div style={{ 
+          background: 'transparent',
+          borderRadius: '30px',
+          padding: '2rem 0',
+          position: 'relative'
+        }} data-aos="fade-up">
           
-          <div style={{ overflow: 'hidden', width: isMobile ? '240px' : '280px' }}>
-            <div style={{ display: 'flex', transition: 'transform 0.4s ease', transform: `translateX(-${currentIndex * 100}%)` }}>
-              {screenshots.map((screenshot) => (
-                <div key={screenshot.id} style={{ flex: `0 0 ${isMobile ? '240px' : '280px'}`, textAlign: 'center', padding: '0 0.5rem' }}>
-                  <div style={{ 
-                    width: isMobile ? '220px' : '250px', 
-                    height: isMobile ? '440px' : '500px', 
-                    background: '#222222', 
-                    borderRadius: '36px', 
-                    padding: '12px', 
-                    margin: '0 auto', 
-                    boxShadow: '0 25px 40px rgba(0, 0, 0, 0.2)', 
-                    overflow: 'hidden' 
-                  }}>
-                    <img src={screenshot.image} alt={screenshot.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '28px' }} />
+          <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+            <button style={{ 
+              width: 'clamp(40px, 8vw, 45px)', 
+              height: 'clamp(40px, 8vw, 45px)', 
+              borderRadius: '50%', 
+              background: 'white', 
+              border: '1px solid #EAEAEA',
+              cursor: 'pointer', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              transition: 'all 0.3s ease', 
+              color: '#F46A7A',
+              zIndex: 2
+            }} onClick={prevSlide} className="carousel-btn">
+              <FaChevronLeft size={18} />
+            </button>
+            
+            <div style={{ overflow: 'hidden', width: isMobile ? '260px' : '300px' }}>
+              <div style={{ display: 'flex', transition: 'transform 0.5s ease', transform: `translateX(-${currentIndex * 100}%)` }}>
+                {screenshots.map((screenshot) => (
+                  <div key={screenshot.id} style={{ flex: `0 0 ${isMobile ? '260px' : '300px'}`, textAlign: 'center', padding: '0 0.75rem' }}>
+                    {/* Black border phone mockup - NO SHADOW */}
+                    <div style={{ 
+                      width: isMobile ? '240px' : '270px', 
+                      height: isMobile ? '480px' : '540px', 
+                      background: '#000000',
+                      borderRadius: '35px',
+                      padding: '8px',
+                      margin: '0 auto',
+                      border: 'none',
+                      overflow: 'hidden'
+                    }}>
+                      <img 
+                        src={screenshot.image} 
+                        alt={screenshot.title} 
+                        style={{ 
+                          width: '100%', 
+                          height: '100%', 
+                          objectFit: 'cover', 
+                          borderRadius: '28px',
+                          transition: 'transform 0.3s ease'
+                        }} 
+                        className="screenshot-img"
+                      />
+                    </div>
+                    <p style={{ 
+                      marginTop: '1rem', 
+                      fontWeight: 600, 
+                      color: '#222222', 
+                      fontSize: isMobile ? '0.85rem' : '0.95rem' 
+                    }}>{screenshot.title}</p>
                   </div>
-                  <p style={{ marginTop: '1rem', fontWeight: 500, color: '#222222', fontSize: isMobile ? '0.8rem' : '0.9rem' }}>{screenshot.title}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
+            
+            <button style={{ 
+              width: 'clamp(40px, 8vw, 45px)', 
+              height: 'clamp(40px, 8vw, 45px)', 
+              borderRadius: '50%', 
+              background: 'white', 
+              border: '1px solid #EAEAEA',
+              cursor: 'pointer', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              transition: 'all 0.3s ease', 
+              color: '#F46A7A',
+              zIndex: 2
+            }} onClick={nextSlide} className="carousel-btn">
+              <FaChevronRight size={18} />
+            </button>
           </div>
-          
-          <button style={{ 
-            width: 'clamp(35px, 8vw, 40px)', 
-            height: 'clamp(35px, 8vw, 40px)', 
-            borderRadius: '50%', 
-            background: 'white', 
-            border: 'none', 
-            boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)', 
-            cursor: 'pointer', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            transition: 'all 0.3s ease', 
-            color: '#F46A7A' 
-          }} onClick={nextSlide} className="carousel-btn"><FaChevronRight /></button>
-        </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-          {screenshots.map((_, index) => (
-            <button
-              key={index}
-              style={{
-                width: currentIndex === index ? 'clamp(16px, 5vw, 24px)' : 'clamp(6px, 2vw, 8px)',
-                height: 'clamp(6px, 2vw, 8px)',
-                borderRadius: currentIndex === index ? 'clamp(8px, 3vw, 10px)' : '50%',
-                background: currentIndex === index ? '#F46A7A' : '#EAEAEA',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-              }}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
+          {/* Dots indicator */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.6rem', marginTop: '2rem' }}>
+            {screenshots.map((_, index) => (
+              <button
+                key={index}
+                style={{
+                  width: currentIndex === index ? '28px' : '8px',
+                  height: '8px',
+                  borderRadius: currentIndex === index ? '10px' : '50%',
+                  background: currentIndex === index ? '#F46A7A' : '#EAEAEA',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                }}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -207,12 +257,11 @@ const Screenshots = () => {
         .carousel-btn:hover {
           background: #F46A7A;
           color: white;
+          border-color: #F46A7A;
+          transform: scale(1.05);
         }
-        @media (max-width: 768px) {
-          .carousel-btn:hover {
-            background: #F46A7A;
-            color: white;
-          }
+        .screenshot-img:hover {
+          transform: scale(1.02);
         }
       `}</style>
     </section>

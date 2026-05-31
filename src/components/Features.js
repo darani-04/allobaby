@@ -9,12 +9,48 @@ const Features = () => {
   const featureHealth = require('../assets/feature-health.png');
 
   const features = [
-    { image: featureHeartbeat, title: "Baby Heart Rate Monitoring", description: "Listen to and visualize your baby's heartbeat for deep emotional connection" },
-    { image: featurePregnancy, title: "Pregnancy Progress Tracking", description: "Follow your baby's development with stunning 3D models and weekly insights" },
-    { image: featureKick, title: "Baby Kick Counter", description: "Track your baby's movements and ensure their well-being throughout the day" },
-    { image: featureAI, title: "Private AI Assistant", description: "24/7 personalized guidance and expert answers to all your questions" },
-    { image: featureFeeding, title: "Feeding Tracker", description: "Easily log feeding times and volumes to establish healthy routines" },
-    { image: featureHealth, title: "Daily Health Monitoring", description: "Keep a close eye on your vitals and baby's trends with smart analysis" }
+    { 
+      image: featureHeartbeat, 
+      title: "Baby Heart Rate Monitoring", 
+      description: "Listen to and visualize your baby's heartbeat for deep emotional connection",
+      badge: "Real-time",
+      gradient: "linear-gradient(135deg, #F46A7A, #F78A9A)"
+    },
+    { 
+      image: featurePregnancy, 
+      title: "Pregnancy Progress Tracking", 
+      description: "Follow your baby's development with stunning 3D models and weekly insights",
+      badge: "Weekly Updates",
+      gradient: "linear-gradient(135deg, #F78A9A, #F46A7A)"
+    },
+    { 
+      image: featureKick, 
+      title: "Baby Kick Counter", 
+      description: "Track your baby's movements and ensure their well-being throughout the day",
+      badge: "Easy Tracking",
+      gradient: "linear-gradient(135deg, #F46A7A, #F78A9A)"
+    },
+    { 
+      image: featureAI, 
+      title: "Private AI Assistant", 
+      description: "24/7 personalized guidance and expert answers to all your questions",
+      badge: "AI Powered",
+      gradient: "linear-gradient(135deg, #F78A9A, #F46A7A)"
+    },
+    { 
+      image: featureFeeding, 
+      title: "Feeding Tracker", 
+      description: "Easily log feeding times and volumes to establish healthy routines",
+      badge: "Smart Log",
+      gradient: "linear-gradient(135deg, #F46A7A, #F78A9A)"
+    },
+    { 
+      image: featureHealth, 
+      title: "Daily Health Monitoring", 
+      description: "Keep a close eye on your vitals and baby's trends with smart analysis",
+      badge: "24/7 Tracking",
+      gradient: "linear-gradient(135deg, #F78A9A, #F46A7A)"
+    }
   ];
 
   return (
@@ -27,7 +63,7 @@ const Features = () => {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '2rem',
           maxWidth: '1280px',
           margin: '0 auto',
@@ -36,22 +72,59 @@ const Features = () => {
           {features.map((feature, index) => (
             <div key={index} style={{ 
               background: 'white', 
-              borderRadius: '24px', 
+              borderRadius: '20px', 
               overflow: 'hidden', 
-              transition: 'all 0.3s ease', 
-              boxShadow: '0 5px 20px rgba(0, 0, 0, 0.05)' 
+              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)', 
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.08)',
+              position: 'relative'
             }} className="feature-card" data-aos="fade-up" data-aos-delay={index * 100}>
-              <div style={{ height: '200px', overflow: 'hidden' }}>
+              {/* Badge */}
+              <div style={{
+                position: 'absolute',
+                top: '15px',
+                right: '15px',
+                background: feature.gradient,
+                color: 'white',
+                padding: '5px 14px',
+                borderRadius: '25px',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                zIndex: 2,
+                letterSpacing: '0.5px'
+              }}>
+                {feature.badge}
+              </div>
+              
+              {/* Image Container */}
+              <div style={{ 
+                height: '220px', 
+                overflow: 'hidden',
+                position: 'relative'
+              }}>
                 <img 
                   src={feature.image} 
                   alt={feature.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                  style={{ 
+                    width: '100%', 
+                    height: '100%', 
+                    objectFit: 'cover', 
+                    transition: 'transform 0.5s ease' 
+                  }} 
                   className="feature-img" 
                 />
               </div>
+              
+              {/* Content */}
               <div style={{ padding: '1.5rem' }}>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem', color: '#222222' }}>{feature.title}</h3>
-                <p style={{ color: '#4A4A4A', lineHeight: 1.5 }}>{feature.description}</p>
+                <h3 style={{ 
+                  fontSize: '1.25rem', 
+                  fontWeight: 700, 
+                  marginBottom: '0.75rem', 
+                  color: '#222222'
+                }}>
+                  {feature.title}
+                </h3>
+                <p style={{ color: '#4A4A4A', lineHeight: 1.6, marginBottom: 0 }}>{feature.description}</p>
               </div>
             </div>
           ))}
@@ -60,11 +133,11 @@ const Features = () => {
 
       <style>{`
         .feature-card:hover {
-          transform: translateY(-8px);
+          transform: translateY(-10px);
           box-shadow: 0 20px 40px rgba(244, 106, 122, 0.15);
         }
         .feature-img:hover {
-          transform: scale(1.1);
+          transform: scale(1.08);
         }
         @media (max-width: 768px) {
           .feature-card {

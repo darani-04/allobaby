@@ -61,13 +61,30 @@ const Navbar = () => {
         justifyContent: 'space-between',
         alignItems: 'center',
       }}>
-        {/* Logo with AlloBaby name */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img 
-            src={logo} 
-            alt="AlloBaby Logo" 
-            style={{ height: windowWidth <= 480 ? '28px' : '32px', width: 'auto' }}
-          />
+        {/* Logo with curved corners */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div style={{
+            width: windowWidth <= 480 ? '40px' : '45px',
+            height: windowWidth <= 480 ? '40px' : '45px',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            background: 'linear-gradient(135deg, #F46A7A, #F78A9A)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 4px 12px rgba(244, 106, 122, 0.25)'
+          }}>
+            <img 
+              src={logo} 
+              alt="AlloBaby Logo" 
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover',
+                borderRadius: '14px'
+              }}
+            />
+          </div>
           <span style={{ fontSize: windowWidth <= 480 ? '1.2rem' : '1.5rem', fontWeight: 700, color: '#222222' }}>
             Allo<span style={{ color: '#F46A7A' }}>Baby</span>
           </span>
