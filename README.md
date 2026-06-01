@@ -37,7 +37,7 @@ AlloBaby is an innovative AI-enabled maternal and child care platform designed t
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://github.com/darani-04/allobaby)
+[View Live Demo](https://allobaby-landing-page.netlify.app/)
 
 ## 📦 Installation
 
