@@ -1,9 +1,14 @@
 import React from 'react';
-import { FaGooglePlay, FaDownload, FaRocket, FaHeart, FaShieldAlt, FaClock } from 'react-icons/fa';
+import { FaGooglePlay, FaApple, FaDownload, FaRocket, FaHeart, FaShieldAlt, FaClock } from 'react-icons/fa';
 
 const Download = () => {
   const openPlayStore = () => {
     window.open('https://play.google.com/store/apps/details?id=com.savemom.allobaby', '_blank');
+  };
+
+  const openAppStore = () => {
+    // Corrected App Store link (removed the extra "Allobaby" at the end)
+    window.open('https://apps.apple.com/in/app/allobaby/id6755609553', '_blank');
   };
 
   return (
@@ -81,29 +86,60 @@ const Download = () => {
             Join 10,000+ happy moms using AlloBaby for a safer, healthier pregnancy
           </p>
           
-          {/* Dark Play Store Button */}
-          <button onClick={openPlayStore} style={{ 
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '1rem', 
-            padding: '1.2rem 2.5rem', 
-            border: 'none', 
-            borderRadius: '60px', 
-            fontSize: '1.1rem', 
-            fontWeight: 600,
-            cursor: 'pointer', 
-            transition: 'all 0.3s ease', 
-            background: '#1a1a2e', 
-            color: 'white',
-            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.25)',
+          {/* Both Store Buttons */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
             marginBottom: '2.5rem'
-          }} className="download-main-btn">
-            <FaGooglePlay style={{ fontSize: '2rem' }} />
-            <div style={{ textAlign: 'left' }}>
-              <span style={{ fontSize: '0.75rem', display: 'block', opacity: 0.8 }}>GET IT ON</span>
-              <strong style={{ fontSize: '1.3rem' }}>Google Play</strong>
-            </div>
-          </button>
+          }}>
+            {/* Google Play Button - Dark */}
+            <button onClick={openPlayStore} style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '1rem', 
+              padding: '1rem 2rem', 
+              border: 'none', 
+              borderRadius: '60px', 
+              fontSize: '1rem', 
+              fontWeight: 600,
+              cursor: 'pointer', 
+              transition: 'all 0.3s ease', 
+              background: '#1a1a2e', 
+              color: 'white',
+              boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)'
+            }} className="download-btn">
+              <FaGooglePlay style={{ fontSize: '1.8rem' }} />
+              <div style={{ textAlign: 'left' }}>
+                <span style={{ fontSize: '0.7rem', display: 'block', opacity: 0.8 }}>GET IT ON</span>
+                <strong style={{ fontSize: '1rem' }}>Google Play</strong>
+              </div>
+            </button>
+            
+            {/* App Store Button - White */}
+            <button onClick={openAppStore} style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '1rem', 
+              padding: '1rem 2rem', 
+              border: 'none', 
+              borderRadius: '60px', 
+              fontSize: '1rem', 
+              fontWeight: 600,
+              cursor: 'pointer', 
+              transition: 'all 0.3s ease', 
+              background: 'white', 
+              color: '#222222',
+              boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)'
+            }} className="download-btn-apple">
+              <FaApple style={{ fontSize: '1.8rem' }} />
+              <div style={{ textAlign: 'left' }}>
+                <span style={{ fontSize: '0.7rem', display: 'block', opacity: 0.8 }}>Download on the</span>
+                <strong style={{ fontSize: '1rem' }}>App Store</strong>
+              </div>
+            </button>
+          </div>
           
           {/* Trust badges */}
           <div style={{
@@ -167,13 +203,15 @@ const Download = () => {
           0%, 100% { transform: scale(1); opacity: 0.3; }
           50% { transform: scale(1.1); opacity: 0.5; }
         }
-        .download-main-btn:hover {
+        .download-btn:hover {
           transform: translateY(-5px) scale(1.02);
           background: #2d2d44 !important;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
-        .download-main-btn:active {
-          transform: translateY(-2px) scale(0.98);
+        .download-btn-apple:hover {
+          transform: translateY(-5px) scale(1.02);
+          background: #f8f8f8 !important;
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
       `}</style>
     </section>

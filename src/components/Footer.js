@@ -6,10 +6,11 @@ const Footer = () => {
 
   return (
     <footer style={{ 
-      background: '#2C3E50', 
-      color: 'white', 
+      background: '#FFFFFF', 
+      color: '#222222', 
       padding: '3rem 0 1rem 0',
-      borderTop: '4px solid #F46A7A'
+      borderTop: '4px solid #F46A7A',
+      boxShadow: '0 -5px 20px rgba(0, 0, 0, 0.03)'
     }}>
       <div style={{
         display: 'grid',
@@ -54,48 +55,48 @@ const Footer = () => {
               AlloBaby
             </span>
           </div>
-          <p style={{ color: '#BDC3C7', lineHeight: 1.6, fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>
+          <p style={{ color: '#4A4A4A', lineHeight: 1.6, fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }}>
             AI-Enabled Platform for Safe & Healthy Pregnancies
           </p>
           <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', flexWrap: 'wrap' }}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#BDC3C7', transition: 'all 0.3s ease' }} className="social-link" aria-label="Facebook"><FaFacebook size={16} /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#BDC3C7', transition: 'all 0.3s ease' }} className="social-link" aria-label="Twitter"><FaTwitter size={16} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#BDC3C7', transition: 'all 0.3s ease' }} className="social-link" aria-label="Instagram"><FaInstagram size={16} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: 'rgba(255,255,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#BDC3C7', transition: 'all 0.3s ease' }} className="social-link" aria-label="LinkedIn"><FaLinkedin size={16} /></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: '#F8F8F8', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A4A4A', transition: 'all 0.3s ease' }} className="social-link" aria-label="Facebook"><FaFacebook size={16} /></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: '#F8F8F8', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A4A4A', transition: 'all 0.3s ease' }} className="social-link" aria-label="Twitter"><FaTwitter size={16} /></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: '#F8F8F8', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A4A4A', transition: 'all 0.3s ease' }} className="social-link" aria-label="Instagram"><FaInstagram size={16} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ width: 'clamp(32px, 8vw, 36px)', height: 'clamp(32px, 8vw, 36px)', background: '#F8F8F8', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4A4A4A', transition: 'all 0.3s ease' }} className="social-link" aria-label="LinkedIn"><FaLinkedin size={16} /></a>
           </div>
         </div>
         
         <div>
           <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Quick Links</h4>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '0.5rem' }}><a href="#about" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">About Us</a></li>
-            <li style={{ marginBottom: '0.5rem' }}><a href="#features" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Features</a></li>
-            <li style={{ marginBottom: '0.5rem' }}><a href="#how-it-works" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">How It Works</a></li>
-            <li style={{ marginBottom: '0.5rem' }}><a href="#faq" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">FAQ</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#about" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">About Us</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#features" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Features</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#how-it-works" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">How It Works</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="#faq" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">FAQ</a></li>
           </ul>
         </div>
         
         <div>
           <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Legal</h4>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ marginBottom: '0.5rem' }}><a href="/privacy" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Privacy Policy</a></li>
-            <li style={{ marginBottom: '0.5rem' }}><a href="/terms" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Terms of Service</a></li>
-            <li style={{ marginBottom: '0.5rem' }}><a href="/cookies" style={{ color: '#BDC3C7', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Cookie Policy</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/privacy" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Privacy Policy</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/terms" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Terms of Service</a></li>
+            <li style={{ marginBottom: '0.5rem' }}><a href="/cookies" style={{ color: '#4A4A4A', textDecoration: 'none', transition: 'color 0.3s ease', fontSize: 'clamp(0.8rem, 3vw, 0.875rem)' }} className="footer-link">Cookie Policy</a></li>
           </ul>
         </div>
         
         <div>
           <h4 style={{ fontSize: 'clamp(0.9rem, 4vw, 1rem)', fontWeight: 700, marginBottom: '1rem', color: '#F46A7A' }}>Contact Us</h4>
           <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#BDC3C7', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaPhone style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 80952 05092</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#BDC3C7', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaWhatsapp style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 93615 13147</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#BDC3C7', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaEnvelope style={{ color: '#F46A7A', minWidth: '16px' }} /> hello@savemom.ai</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#BDC3C7', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaMapMarkerAlt style={{ color: '#F46A7A', minWidth: '16px' }} /> Madurai, Tamil Nadu, India</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#4A4A4A', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaPhone style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 80952 05092</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#4A4A4A', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaWhatsapp style={{ color: '#F46A7A', minWidth: '16px' }} /> +91 93615 13147</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#4A4A4A', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaEnvelope style={{ color: '#F46A7A', minWidth: '16px' }} /> hello@savemom.ai</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', color: '#4A4A4A', flexWrap: 'wrap', fontSize: 'clamp(0.75rem, 3vw, 0.875rem)' }}><FaMapMarkerAlt style={{ color: '#F46A7A', minWidth: '16px' }} /> Madurai, Tamil Nadu, India</li>
           </ul>
         </div>
       </div>
       
-      <div style={{ textAlign: 'center', paddingTop: '2rem', marginTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.1)', color: '#BDC3C7', fontSize: 'clamp(0.7rem, 3vw, 0.875rem)' }}>
+      <div style={{ textAlign: 'center', paddingTop: '2rem', marginTop: '2rem', borderTop: '1px solid #EAEAEA', color: '#4A4A4A', fontSize: 'clamp(0.7rem, 3vw, 0.875rem)' }}>
         <p>&copy; 2026 AlloBaby. All rights reserved.</p>
       </div>
 
